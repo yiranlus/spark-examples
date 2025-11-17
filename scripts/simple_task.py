@@ -2,16 +2,18 @@
 A simple PySpark task that creates an RDD, performs a transformation,
 and collects the results.
 """
-from pyspark import SparkConf, SparkContext
+from pyspark.sql import SparkSession
 
-conf = (
-    SparkConf()
-    .setMaster("spark://51.91.85.24:7077")
-    .setAppName("simple_task")
-    .set("spark.executor.cores", "1")
-    .set("spark.executor.memory", "512m")
+spark = (
+    SparkSession.builder
+    .appName("simple_task")
+    # .setMaster("local[*]")
+    .master("spark://51.91.85.24:7077")
+    # .set("spark.executor.cores", "1")
+    # .set("spark.executor.memory", "512m")
+    .getOrCreate()
 )
-sc = SparkContext(conf=conf)
+sc = spark.sparkContext
 
 l = sc.parallelize(range(10))
 l_double = l.map(lambda x: x * 2)
