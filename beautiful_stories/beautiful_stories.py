@@ -68,12 +68,12 @@ title_line_nos = (
     .filter(lambda x: x[0] in content_titles)
     .sortBy(lambda x: x[1])
 ).collect()
-# title_line_nos[-1] = (title_line_nos[-1][0] + ".", title_line_nos[-1][1])
+title_line_nos[-1] = (title_line_nos[-1][0] + ".", title_line_nos[-1][1])
 
-# for title, line_no in title_line_nos[:-1]:
-#     print(f"Title: {title:<30} Line No: {line_no}")
-# line_nos = list(map(lambda x: x[1], title_line_nos))
-# print()
+for title, line_no in title_line_nos[:-1]:
+    print(f"Title: {title:<30} Line No: {line_no}")
+line_nos = list(map(lambda x: x[1], title_line_nos))
+print()
 
 # %% Extract Content of Each Story
 def index_le(a, x):
