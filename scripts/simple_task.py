@@ -6,7 +6,7 @@ from pyspark import SparkConf, SparkContext
 
 conf = (
     SparkConf()
-    .setMaster("spark://51.91.85.24:7077")
+    .setMaster("spark://51.91.85.76:7077")
     .setAppName("simple_task")
 )
 sc = SparkContext(conf=conf)
